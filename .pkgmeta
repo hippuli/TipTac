@@ -1,0 +1,6 @@
+package-as: TipTac
+
+move-folders:
+  TipTac/TipTac: TipTac
+  TipTac/TipTacItemRef: TipTacItemRef
+  TipTac/TipTacOptions: TipTacOptions
