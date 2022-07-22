@@ -1,5 +1,5 @@
 ## Interface: 20504
-## Version: 22.06.11
+## Version: 22.06.30
 ## Title: TipTacItemRef |cff00aa00(GepyFix)
 ## Author: Aezay (Earthen Ring EU)
 ## Notes: Improved ItemRefTooltip

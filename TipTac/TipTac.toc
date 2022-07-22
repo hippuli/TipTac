@@ -1,5 +1,5 @@
 ## Interface: 20504
-## Version: 22.06.11
+## Version: 22.06.30
 ## Title: TipTac Classic+TBC - MAIN |cff00aa00(Gepy)
 ## Author: Aezay (Earthen Ring EU)
 ## Notes: Highly Customizable Tooltip Enhancement Addon (Fix by DaMaGepy)

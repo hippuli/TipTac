@@ -183,7 +183,16 @@ end
 -- Create Icon with Counter Text for Tooltip
 function ttif:CreateTooltipIcon(tip)
 	tip.ttIcon = tip:CreateTexture(nil, "BACKGROUND");
-	tip.ttIcon:SetPoint(cfg.if_iconAnchor,tip, cfg.if_iconTooltipAnchor, cfg.if_iconOffsetX, cfg.if_iconOffsetY);
+	if (cfg.if_iconAnchor==nil) or (cfg.if_iconTooltipAnchor==nil) or (cfg.if_iconOffsetX==nil) or (cfg.if_iconOffsetY==nil) then -- DaMaGepy debug
+		local cfgnil = ""
+		if (cfg.if_iconAnchor==nil) then cfgnil=cfgnil.."if_iconAnchor  "; end
+		if (cfg.if_iconTooltipAnchor==nil) then cfgnil=cfgnil.."if_iconTooltipAnchor  "; end
+		if (cfg.if_iconOffsetX==nil) then cfgnil=cfgnil.."if_iconOffsetX  "; end
+		if (cfg.if_iconOffsetY==nil) then cfgnil=cfgnil.."if_iconOffsetY  "; end
+		if (cfgnil~="") then DEFAULT_CHAT_FRAME:AddMessage(" - TipTac NIL cfg:  "..cfgnil); end
+	else
+		tip.ttIcon:SetPoint(cfg.if_iconAnchor,tip, cfg.if_iconTooltipAnchor, cfg.if_iconOffsetX, cfg.if_iconOffsetY);
+	end
 	tip.ttIcon:Hide();
 
 	tip.ttCount = tip:CreateFontString(nil, "ARTWORK");
