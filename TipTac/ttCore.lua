@@ -322,8 +322,8 @@ orgGTTSFontFlags = "";        -- Set during VARIABLES_LOADED
 -- Pixel Perfect Scale
 local physicalScreenWidth, physicalScreenHeight, uiUnitFactor, uiScale;
 -- DaMaGepy
-	local mouseOffsetX, mouseOffsetY;
-	if cfg then if cfg.mouseOffsetX then mouseOffsetX = cfg.mouseOffsetX; mouseOffsetY = cfg.mouseOffsetY; else mouseOffsetX = 0; mouseOffsetY = 0; end else mouseOffsetX = 0; mouseOffsetY = 0; end
+local mouseOffsetX, mouseOffsetY;
+if cfg then if cfg.mouseOffsetX then mouseOffsetX = cfg.mouseOffsetX; mouseOffsetY = cfg.mouseOffsetY; else mouseOffsetX = 0; mouseOffsetY = 0; end else mouseOffsetX = 0; mouseOffsetY = 0; end
 
 local function updatePixelPerfectScale()
 	physicalScreenWidth, physicalScreenHeight = GetPhysicalScreenSize();
@@ -900,6 +900,7 @@ local function SetDefaultAnchor(tooltip, parent, noSetOwner)
 	-- we have to just set it here statically, as we wont have the OnUpdate hooked for that tooltip
 	if (tooltip ~= gtt) and (tooltip.ttAnchorType == "mouse") then
 		if (not noSetOwner) then
+			if cfg then mouseOffsetX, mouseOffsetY = cfg.mouseOffsetX, cfg.mouseOffsetY; end
 			tooltip:SetOwner(parent, "ANCHOR_CURSOR_RIGHT", mouseOffsetX, mouseOffsetY);
 		end
 	else
@@ -932,6 +933,7 @@ function tt:AnchorFrameToMouse(frame)
 	local x, y = GetCursorPosition();
 	local effScale = frame:GetEffectiveScale();
 	frame:ClearAllPoints();
+	if cfg then mouseOffsetX, mouseOffsetY = cfg.mouseOffsetX, cfg.mouseOffsetY; end
 	frame:SetPoint(frame.ttAnchorPoint, UIParent, "BOTTOMLEFT", (x / effScale + mouseOffsetX), (y / effScale + mouseOffsetY));
 end
 
